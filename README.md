@@ -1,24 +1,27 @@
-# README
+# README - Clear Fashion Coding Game
+Made By Christopher Marlier
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Follow these instructions to start the app :
 
-Things you may want to cover:
+* Open a terminal in the source directory
 
-* Ruby version
+* run : bundle install
 
-* System dependencies
+* run : rake db:migrate
 
-* Configuration
+	-> if there is an error "Couldn't find an integrity file", run the command :
+	yarn install --check-files then again : db:migrate
 
-* Database creation
+* Everything should be fine ! Launch the server with : rails server
 
-* Database initialization
+* Open your favorite browser and go to localhost:3000
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Login & password :
 
-* Deployment instructions
+	Linguini view -> name = Linguini & password = 12345
+	
+	Chief Of Hapiness view -> name = ChiefOfHapiness & password = 12345
 
-* ...
+
+If you have any question : marlier.christopher@gmail.com
