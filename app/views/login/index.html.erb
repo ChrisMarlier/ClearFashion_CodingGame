@@ -1,0 +1,28 @@
+
+<div id="connexion">
+
+  			<img src="/images/logo.png" class="logo">
+        <p id="brandname"><strong>CLEAR FASHION</strong></p>
+
+      <div id="header">
+				<h1>CONNEXION</h1>
+          </div>
+
+
+			<div id="formulaire">
+
+        <p id="error"><%= flash[:info] %></p>
+
+
+        <%= form_tag "/login", method: :post do %>
+
+	          	<div><input type="text" name="name" placeholder="Nom" required></div>
+	      			<div id="mdp"><input type="password" name="password" placeholder="Mot de passe" required></div>
+
+	      		<div id="footer">
+  	      			<input class="btn" type="submit" value="Connexion">
+            </div>
+
+			<% end %>
+  </div>
+		</div>

@@ -1,0 +1,50 @@
+<a id="disconnect" href="/disconnect">Se déconnecter 🚪</a>
+
+<div id="main">
+  <img src="/images/logo.png" class="logo">
+  <p id="brandname"><strong>CLEAR FASHION</strong></p>
+
+<div id="fightCreation">
+  <div id="hello">
+    <h1>Bonjour Linguini, prêt à créer un FIGHT ?</h1>
+  </div>
+
+  <div id="info">
+    <p><%= flash[:info] %></p>
+  </div>
+  <div id="sucess">
+    <p><%= flash[:sucess] %></p>
+  </div>
+
+  <%= form_tag "/linguiniView", method: "post" do %>
+    <div id="date">
+      <p>Choisis la date du fight :</p>
+      <input type="date" name="date" required/>
+    </div>
+
+    <div id="pastriesChoice">
+      <div id="pastry1">
+        <p>Choix de la pâtisserie n°1 :</p>
+        <img src="/images/pastry1.png" class="pastry1">
+        <select name="pastry1">
+          <% @pastries.each do |item| %>
+            <option value="<%= item.id %>"><%= item.name %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div id="pastry2">
+        <p>Choix de la pâtisserie n°2 :</p>
+        <img src="/images/pastry2.png" class="pastry2">
+        <select name="pastry2">
+          <% @pastries.each do |item| %>
+            <option value="<%= item.id %>"><%= item.name %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+
+    <input class="btn" type="submit" value="FIGHT !">
+  <% end %>
+  </div>
+</div>

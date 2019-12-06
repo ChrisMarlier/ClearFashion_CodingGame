@@ -1,0 +1,153 @@
+
+<a id="disconnect" href="/disconnect">Se déconnecter 🚪</a>
+
+<div id="main2">
+
+  <img src="/images/logo.png" class="logo">
+  <p id="brandname"><strong>CLEAR FASHION</strong></p>
+
+    <div id="hello">
+      <h1>Interface chief of hapiness </h1>
+    </div>
+
+    <div id="info">
+      <p><%= flash[:info] %></p>
+    </div>
+    <div id="sucess">
+      <p><%= flash[:sucess] %></p>
+    </div>
+
+    <h1 id="titleList">Liste des fights à configurer :</h1>
+
+    <% if @fights.where(choiceDone:FALSE).empty? %>
+      <p>Aucun fight à configurer.</p>
+    <% else %>
+
+    <% @fights.where(choiceDone:FALSE).each do |fight| %>
+
+    <div id="fightModification">
+      <%= form_tag "/chiefOfHapinessView", method: "post" do %>
+
+        <input type="hidden" name="fight_id" value="<%= fight.id %>"/>
+
+        <%= fight.date.strftime("%e/%m/%Y") %>
+
+        <div id="flex">
+          <div id="past1">
+            <p><%= @pastries.find(fight.pastry1).name%></p>
+            <select name="choice1">
+              <% @employees.where(id_speciality:fight.pastry1).each do |employee| %>
+                <option value="<%= employee.id %>"><%= employee.name %></option>
+              <% end %>
+            </select>
+
+            <% if @pastries.find(fight.pastry1).id == 2 %>
+              <select name="custom1">
+                  <option value="Chocolat noir">Chocolat noir</option>
+                  <option value="Chocolat blanc">Chocolat Blanc</option>
+              </select>
+            <% end %>
+          </div>
+
+          <div id="fightimg"><img src="/images/fight.png" class="logo"></div>
+
+          <div id="past2">
+            <p><%= @pastries.find(fight.pastry2).name%></p>
+            <select name="choice2">
+              <% @employees.where(id_speciality:fight.pastry2).each do |employee| %>
+                <option value="<%= employee.id %>"><%= employee.name %></option>
+              <% end %>
+            </select>
+
+            <% if @pastries.find(fight.pastry2).id == 2 %>
+              <select name="custom2">
+                  <option value="Chocolat noir">Chocolat noir</option>
+                  <option value="Chocolat blanc">Chocolat Blanc</option>
+              </select>
+            <% end %>
+          </div>
+        </div>
+
+      <div id="fruits">
+        <p>Nombre de combattant(s) de la catégorie fruits :</p>
+        <select name="numberFruits" id="selectNumberFruits" onchange="showEmployee(this.value)">
+          <option value="0">0</option>
+          <% @employees.where(id_speciality:6).each_with_index do |employee,i| %>
+          <option value="<%= i+1 %>"><%= i+1 %></option>
+          <% end%>
+        </select>
+
+
+        <select name="choice3" hidden id="choice3">
+          <% @employees.where(id_speciality:6).each do |employee| %>
+            <option value="<%= employee.id %>"><%= employee.name %></option>
+          <% end %>
+        </select>
+
+        <select name="choice4" hidden id="choice4">
+          <% @employees.where(id_speciality:6).each do |employee| %>
+            <option value="<%= employee.id %>"><%= employee.name %></option>
+          <% end %>
+        </select>
+
+        <select name="choice5" hidden id="choice5">
+          <% @employees.where(id_speciality:6).each do |employee| %>
+            <option value="<%= employee.id %>"><%= employee.name %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <input class="btn" type="submit" value="VALIDER" />
+      </div>
+    <% end %>
+    <% end %>
+  <% end %>
+
+    <h1 id="titleList">Liste des fights déjà configurés :</h1>
+
+    <% if @fights.where(choiceDone:TRUE).empty? %>
+
+    <p>Aucun fight déjà configuré.</p>
+
+    <%else %>
+    <% @fights.where(choiceDone:TRUE).each do |fight| %>
+    <div id="recap">
+      <img src="/images/swords.png" class="swords">
+      <p>Date : <%= fight.date.strftime("%e/%m/%Y") %></p>
+      <% @fightemployees.where(id_fight:fight.id).each do |fe|  %>
+        <p><%= @employees.find(fe.id_employee).name %>: <%= @pastries.find(@employees.find(fe.id_employee).id_speciality).name %> <%= fe.customization %></p>
+      <% end %>
+    </div>
+    <% end%>
+  <%end%>
+</div>
+
+  <%= javascript_tag do %>
+  function showEmployee(value) {
+    let selectChoice3 = document.getElementById('choice3');
+    let selectChoice4 = document.getElementById('choice4');
+    let selectChoice5 = document.getElementById('choice5');
+
+    if(value ==0){
+      selectChoice3.hidden = "false"
+      selectChoice4.hidden = "false"
+      selectChoice5.hidden = "false"
+    }
+    else if (value == 1){
+      selectChoice3.removeAttribute("hidden")
+      selectChoice4.hidden = "false"
+      selectChoice5.hidden = "false"
+    }
+    else if (value == 2){
+      selectChoice3.removeAttribute("hidden")
+      selectChoice4.removeAttribute("hidden")
+      selectChoice5.hidden = "false"
+    }
+    else if (value == 3){
+      selectChoice3.removeAttribute("hidden")
+      selectChoice4.removeAttribute("hidden")
+      selectChoice5.removeAttribute("hidden")
+    }
+
+  }
+  <% end %>

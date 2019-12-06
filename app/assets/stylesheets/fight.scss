@@ -1,0 +1,148 @@
+// Place all the styles related to the fight controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#main{
+  width: 70%;
+  padding: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  text-align: center;
+  background-color: white;
+  -webkit-box-shadow: 7px 7px 12px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 7px 7px 12px -7px rgba(0,0,0,0.75);
+  box-shadow: 7px 7px 12px -7px rgba(0,0,0,0.75);
+  border-radius: 5px;
+}
+
+#main  h1, #main2 h1{
+  color: black;
+  font-size: 18px;
+  height: auto;
+}
+
+#main #fightCreation p{
+  display: inline;
+}
+
+#info p {
+  color: red;
+}
+
+#sucess p {
+  color: green;
+}
+
+#disconnect, #disconnect:visited{
+  color:black;
+  float: right;
+  text-decoration: none;
+}
+
+#fightCreation {
+  padding:10px;
+}
+
+#pastriesChoice, #date, #info{
+  margin-top:35px;
+}
+
+#hello{
+  margin-top: 15px;
+}
+
+#fightCreation form img{
+  width: 100px;
+  height: 100px;
+}
+
+#pastriesChoice {
+  display: flex;
+  justify-content: center;
+  padding : 10px;
+}
+
+#pastriesChoice img {
+  display: block;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+}
+
+#pastry1, #pastry2{
+  margin: 20px;
+  margin-top: 0;
+  width: 30%;
+
+}
+
+
+
+//CHIEF HAPINESS
+#main2{
+  width: 70%;
+  height: 80%;
+  text-align: center;
+  background-color: white;
+  margin :auto;
+  -webkit-box-shadow: 7px 7px 12px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 7px 7px 12px -7px rgba(0,0,0,0.75);
+  box-shadow: 7px 7px 12px -7px rgba(0,0,0,0.75);
+  border-radius: 5px;
+  padding: 20px;
+  margin-top:20px;
+}
+
+#flex {
+  display: flex;
+  justify-content: center;
+  margin-top : 10px;
+  margin-bottom: 10px;
+}
+
+#past1, #past2, #fightimg{
+  width : 20%;
+}
+
+#past1 select, #past2 select {
+  margin-top: 10px;
+}
+
+#fightModification{
+  border-bottom: solid 1px gray;
+  padding-bottom: 20px;
+  margin-top:15px;
+  -webkit-box-shadow: 0 4px 6px -6px #222;
+    -moz-box-shadow: 0 3px 6px -6px #222;
+    box-shadow: 0 3px 6px -6px #222;
+}
+
+#fruits{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#titleList{
+  text-align: left;
+  margin-top: 20px;
+}
+
+#recap {
+  border-radius : 3px;
+  padding:10px;
+  margin : auto;
+  margin-top: 20px;
+  width: 40%;
+  border : solid 1px gray;
+  box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #B3B3B3;
+
+}
+
+#recap img {
+  width: 30px;
+  height: 30px;
+}
